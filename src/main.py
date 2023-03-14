@@ -1,4 +1,5 @@
 from termcolor import *
+from time import *
 
 # Define towers as an object
 class Towers:
@@ -46,6 +47,7 @@ def TowerOfHanoi(towers, n, from_tower, to_tower, aux_tower):
 
     # Move disk to destination tower and print towers
     towers.move(from_tower, to_tower)
+    sleep(1)
     print(colored(towers, "light_green"))
 
     # Move subproblem of n-1 disks from helper tower to destination tower
@@ -62,6 +64,7 @@ _disks_count = int(input("Enter the disk count : "))
 while _disks_count != 0:
     # Make towers object and print it
     t = Towers(_disks_count)
+    sleep(1)
     print(colored(t, "light_green"))
 
     # Call main function
