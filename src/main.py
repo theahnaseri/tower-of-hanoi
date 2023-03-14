@@ -1,3 +1,5 @@
+from termcolor import *
+
 # Define towers as an object
 class Towers:
     # Initialize tower
@@ -34,8 +36,6 @@ class Towers:
         self.towers[to_tower].append(disk)
 
 # Tower Of Hanoi main algorithm function for n disks
-
-
 def TowerOfHanoi(towers, n, from_tower, to_tower, aux_tower):
     # Base case (continue until move all disks)
     if n == 0:
@@ -46,14 +46,14 @@ def TowerOfHanoi(towers, n, from_tower, to_tower, aux_tower):
 
     # Move disk to destination tower and print towers
     towers.move(from_tower, to_tower)
-    print(towers)
+    print(colored(towers, "light_green"))
 
     # Move subproblem of n-1 disks from helper tower to destination tower
     TowerOfHanoi(towers, n-1, aux_tower, to_tower, from_tower)
 
 
 # Welcome
-print("===> Hello, Welcome to Hanoi Tower Solver <=== \n")
+print(colored("===> Hello, Welcome to Hanoi Tower Solver <=== \n", "light_yellow", attrs=["bold"]))
 
 # Get disk count from user
 _disks_count = int(input("Enter the disk count : "))
@@ -62,14 +62,13 @@ _disks_count = int(input("Enter the disk count : "))
 while _disks_count != 0:
     # Make towers object and print it
     t = Towers(_disks_count)
-    print(t)
+    print(colored(t, "light_green"))
 
     # Call main function
     TowerOfHanoi(t, t.disks_count, 0, 2, 1)
 
     # Takes the disks count from user
-    _disks_count = int(
-        input("Enter the disk count (Enter 0 if you want to end this!) : "))
+    _disks_count = int(input("Enter the disk count (Enter 0 if you want to end this!) : "))
 
 # Developers
-print("\nThank you for choosing us :)\n>>>Developed by Maryam Fakhraei and Amirhossein Naseri<<<")
+print(colored("\nThank you for choosing us :)\n>>>Developed by Maryam Fakhraei and Amirhossein Naseri<<<", "light_magenta"))
